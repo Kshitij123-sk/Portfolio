@@ -104,6 +104,33 @@ padding:20px;
 margin-top:40px;
 }
 
+.status-bar {
+    background: #0f172a;
+    color: #10b981; /* Success Green */
+    padding: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+    border-top: 1px solid #1e293b;
+    text-align: left;
+}
+
+.status-dot {
+    height: 8px;
+    width: 8px;
+    background-color: #10b981;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 5px;
+    box-shadow: 0 0 8px #10b981;
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.4; }
+    100% { opacity: 1; }
+}
+
 .btn{
     display: inline-block;
     margin-top: 25px;
@@ -270,6 +297,10 @@ margin-top:40px;
 </div>
 
 <footer>
+<div class="status-bar">
+    <span class="status-dot"></span> 
+    SYSTEM STATUS: ALL SERVICES OPERATIONAL | UPTIME: 99.9% | LOCATION: Kalyan, MH
+</div>
 <p>© 2026 Kshitij Ovhal | Support Engineer Portfolio</p>
 </footer>
 
