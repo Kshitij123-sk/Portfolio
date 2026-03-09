@@ -36,14 +36,33 @@ font-size:14px;
 }
 
 .hero{
-padding:80px 20px;
-text-align:center;
-background:#e2e8f0;
+    padding: 100px 20px;
+    text-align: center;
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); /* Professional Dark Gradient */
+    color: white;
 }
 
 .hero h2{
-font-size:40px;
-margin-bottom:10px;
+    font-size: 48px;
+    margin-bottom: 5px;
+    letter-spacing: -1px;
+}
+
+.hero p {
+    font-size: 18px;
+    opacity: 0.9;
+    max-width: 700px;
+    margin: 10px auto;
+}
+
+.hero .domain-tag {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    margin-top: 10px;
 }
 
 .container{
@@ -86,13 +105,16 @@ margin-top:40px;
 }
 
 .btn{
-display:inline-block;
-margin-top:15px;
-padding:10px 18px;
-background:#2563eb;
-color:white;
-text-decoration:none;
-border-radius:4px;
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 24px;
+    background: #3b82f6;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: transform 0.2s, background 0.2s;
+    margin-right: 10px;
 }
 /* Terminal Style for About Me */
 .terminal-window {
@@ -106,6 +128,20 @@ border-radius:4px;
     margin-top: 15px;
     font-size: 14px;
     line-height: 1.6;
+}
+
+.btn:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: transparent;
+    border: 2px solid #3b82f6;
+}
+
+.btn-secondary:hover {
+    background: rgba(59, 130, 246, 0.1);
 }
 
 /* Project Card Styling */
@@ -142,11 +178,19 @@ border-radius:4px;
 </header>
 
 <section class="hero">
-<h2>Technical Associate</h2>
-<p>Infrastructure | cloud | Application Support | Linux Systems</p>
-<p>Banking Domain | Fintech </p>
-<a class="btn" href="resume.pdf" download>Resume</a>
-<a class="btn" href="https://www.linkedin.com/in/kshitij-ovhal/" target="_blank">View LinkedIn</a>
+<h2>Kshitij Ovhal</h2>
+  <p><strong>Infrastructure & Application Support Engineer</strong></p>
+  <p>Specializing in Linux Systems, VMware Virtualization, and Cloud Operations.</p>
+  <div class="domain-tag">
+    <i class="devicon-googlecloud-plain"></i> Banking Domain | Fintech | Production Support
+  </div>
+  <br>
+  <a class="btn" href="resume.pdf" download>
+    <i class="devicon-chrome-plain"></i> Download Resume
+  </a>  
+  <a class="btn btn-secondary" href="https://www.linkedin.com/in/kshitij-ovhal/" target="_blank">
+    Connect on LinkedIn
+  </a>
 </section>
 
 <div class="container">
