@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
 <title>Kshitij Ovhal</title>
 
 <style>
@@ -93,6 +94,37 @@ color:white;
 text-decoration:none;
 border-radius:4px;
 }
+/* Terminal Style for About Me */
+.terminal-window {
+    background-color: #1e1e1e;
+    color: #33ff33;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 20px;
+    border-radius: 8px;
+    border-top: 25px solid #333;
+    position: relative;
+    margin-top: 15px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Project Card Styling */
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 768px) { .project-grid { grid-template-columns: 1fr; } }
+
+.project-card {
+    background: white;
+    padding: 20px;
+    border-radius: 6px;
+    border-left: 5px solid #2563eb;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
 </style>
 </head>
 
@@ -103,6 +135,7 @@ border-radius:4px;
 <nav>
 <a href="#about">About</a>
 <a href="#experience">Experience</a>
+<a href="#projects">Projects</a>
 <a href="#skills">Skills</a>
 <a href="#contact">Contact</a>
 </nav>
@@ -117,19 +150,18 @@ border-radius:4px;
 </section>
 
 <div class="container">
-
 <section id="about">
-<h3 class="section-title">About Me</h3>
-<div class="card">
-<p>
-Support Engineer experienced in production infrastructure monitoring,
-application troubleshooting, and incident management. Skilled in Linux
-systems, virtualized environments, log analysis, and maintaining
-high-availability enterprise applications. Focused on rapid issue
-resolution and ensuring stable production environments.
-</p>
-</div>
+  <h3 class="section-title">About Me</h3>
+  <div class="terminal-window">
+    <p style="color: #f1fa8c;">$ whoami</p>
+    <p>Kshitij Ovhal: Infrastructure Support Engineer specialized in Fintech & Banking systems.</p>
+    <p style="color: #f1fa8c;">$ cat capabilities.txt</p>
+    <p>Skilled in Linux (Fedora/RHEL), VMware vSphere, and BASE24 transaction monitoring. Experienced in maintaining high-availability environments and rapid incident resolution.</p>
+    <p style="color: #f1fa8c;">$ status --current</p>
+    <p>Monitoring production health at Netweb Technologies... [OK]</p>
+  </div>
 </section>
+
 
 <section id="experience">
 <h3 class="section-title">Experience</h3>
@@ -161,18 +193,36 @@ resolution and ensuring stable production environments.
 
 </section>
 
+<section id="projects">
+  <h3 class="section-title">Technical Projects</h3>
+  <div class="project-grid">
+    
+    <div class="project-card">
+      <h4>Linux Web Infrastructure Deployment</h4>
+      <p>Deployed an Apache web server on a Fedora Linux VM. Configured static networking, firewall rules (firewalld), and automated site updates via Git.</p>
+      <small><strong>Tech:</strong> Linux, Apache, Git, VMware</small>
+    </div>
+
+    <div class="project-card">
+      <h4>Portfolio CI/CD Pipeline</h4>
+      <p>Automated the deployment of this professional portfolio using GitHub Pages, ensuring version-controlled updates from a local development environment.</p>
+      <small><strong>Tech:</strong> GitHub Pages, HTML/CSS, Git</small>
+    </div>
+
+  </div>
+</section>
+  
 <section id="skills">
 <h3 class="section-title">Technical Skills</h3>
 <div class="card skills">
-<span>Linux</span>
-<span>Linux server</span>
-<span>cloud</span>
-<span>SQL</span>
-<span>VMware</span>
-<span>vSphere</span>
-<span>Application Support</span>
-<span>Incident Management</span>
-<span>Networking</span>
+<div class="card skills">
+  <span><i class="devicon-linux-plain"></i> Linux</span>
+  <span><i class="devicon-bash-plain"></i> Shell Scripting</span>
+  <span><i class="devicon-microsoftsqlserver-plain"></i> SQL Server</span>
+  <span><i class="devicon-vmware-plain"></i> VMware</span>
+  <span><i class="devicon-apache-plain"></i> Apache</span>
+  <span><i class="devicon-github-original"></i> Git/GitHub</span>
+  <span><i class="devicon-network-plain"></i> Networking</span>
 </div>
 </section>
 
