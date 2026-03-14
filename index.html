@@ -3,42 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kshitij Ovhal | Portfolio</title>
+    <title>Kshitij Ovhal | Cloud-Ready Support Engineer</title>
     <style>
-        /* Dark Blue Palette Variables */
         :root {
-            --primary: #1e293b;    /* Slate Blue (Header/Accents) */
-            --accent: #38bdf8;     /* Sky Blue (Links/Highlight) */
-            --bg: #0f172a;         /* Midnight Blue (Background) */
-            --text: #f1f5f9;       /* Light Gray (Text) */
-            --tag-bg: #334155;     /* Dark Slate (Tags) */
+            --primary: #72A0C1;    
+            --accent: #4682B4;     
+            --bg: #F0F8FF;         
+            --text: #2F4F4F;       
+            --tag-bg: #B0E0E6;     
             --white: #ffffff;
+            --cloud-blue: #00A1E0; /* AWS-inspired blue for cloud highlights */
         }
 
         body {
             margin: 0;
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg);
+            background-color: #253341;
             color: var(--text);
             line-height: 1.6;
         }
 
         header {
-            background: var(--primary);
+            background: linear-gradient(135deg, var(--primary), var(--cloud-blue));
             color: var(--white);
             padding: 3.5rem 1rem;
             text-align: center;
-            border-bottom: 2px solid var(--accent);
         }
 
         .container {
             max-width: 850px;
             margin: -30px auto 40px;
             padding: 40px;
-            background: #1e293b; /* Slightly lighter than body for contrast */
+            background: var(--white);
             border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-            border: 1px solid #334155;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
         h2 { 
@@ -69,29 +67,30 @@
 
         .skill-tag {
             background: var(--tag-bg);
-            color: var(--text);
             padding: 6px 14px;
-            border-radius: 6px;
+            border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 600;
         }
 
         .cloud-tag {
-            border: 1px solid var(--accent);
+            background: #e0f2fe;
+            border: 1px solid var(--cloud-blue);
+            color: var(--cloud-blue);
         }
 
         .project-card {
-            background: #0f172a;
+            background: #f8fafc;
             padding: 20px;
             border-radius: 8px;
-            border: 1px solid #334155;
+            border: 1px solid #e2e8f0;
             margin-top: 15px;
         }
 
         .job-entry {
             margin-bottom: 20px;
             padding-left: 15px;
-            border-left: 4px solid var(--accent);
+            border-left: 4px solid var(--primary);
         }
 
         .btn {
@@ -99,7 +98,7 @@
             margin-top: 20px;
             padding: 12px 30px;
             background: var(--accent);
-            color: #0f172a; /* Dark text on light button */
+            color: var(--white);
             text-decoration: none;
             border-radius: 8px;
             font-weight: bold;
@@ -118,7 +117,7 @@
 <div class="container">
     <section>
         <h2>About Me</h2>
-        <p>I am a Support Engineer with a strong focus on Linux administration and hybrid infrastructure. While I currently manage on-premise systems at <strong>Netweb Technologies</strong>, I possess foundational knowledge in cloud computing and AWS, aiming to bridge the gap between traditional data centers and the cloud[cite: 1, 2].</p>
+        <p>I am a Support Engineer with a strong focus on Linux administration and hybrid infrastructure. While I currently manage on-premise systems at <strong>Netweb Technologies</strong>, I possess foundational knowledge in cloud computing and AWS, aiming to bridge the gap between traditional data centers and the cloud.</p>
     </section>
 
     <section>
@@ -138,17 +137,15 @@
             <div class="skills-container">
                 <span class="skill-tag">RHEL 9.7 / Fedora</span>
                 <span class="skill-tag">Apache & NGINX</span>
+                <span class="skill-tag">DNS (BIND) Configuration</span>
                 <span class="skill-tag">Linux System Admin</span>
-                <span class="skill-tag">Docker</span>
-                <span class="skill-tag">Git & GitHub</span>
-                <span class="skill-tag">Grafana & Promethus</span>
-                <span class="skill-tag">Networking</span>
+                <span class="skill-tag">Networking (Firewalls)</span>
             </div>
         </div>
     </section>
 
     <section>
-        <h2>Featured Projects</h2>
+        <h2>Cloud-Related Projects</h2>
         <div class="project-card">
             <h3>Hybrid Environment Setup</h3>
             <p>Managed localized server environments using <strong>VMware</strong> and <strong>RHEL</strong>, simulating cloud-like infrastructure for application deployment.</p>
@@ -163,21 +160,24 @@
         <h2>Work Experience</h2>
         <div class="job-entry">
             <strong>Support Engineer</strong> | Netweb Technologies <br>
-            <small>Nov 2025 – Present</small> 
+            <small>Nov 2025 – Present</small>
         </div>
         <div class="job-entry">
             <strong>Apprentice Technical Associate</strong> | Financial Software Systems <br>
-            <small>Jan 2025 – Oct 2025</small> 
+            <small>Jan 2025 – Oct 2025</small>
         </div>
     </section>
 
     <div style="text-align: center; margin-top: 40px;">
         <a class="btn" href="https://www.linkedin.com/in/kshitij-ovhal" target="_blank">Connect on LinkedIn</a>
+        <a class="btn" href="Kshitij_resume.pdf" target="_blank">View Resume</a>
     </div>
 </div>
 
 <footer>
-    <p>Bridging On-Premise & Cloud Infrastructure</p>
+    <p>Contact</p>
+    <p>Email : kshitijovhal342@gmail.com</p>
+    <p>Phone no : +91 7039290398</p>
 </footer>
 
 </body>
