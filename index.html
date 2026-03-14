@@ -3,40 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kshitij Ovhal | Cloud-Ready Support Engineer</title>
+    <title>Kshitij Ovhal | Portfolio</title>
     <style>
+        /* Dark Blue Palette Variables */
         :root {
-            --primary: #72A0C1;    
-            --accent: #4682B4;     
-            --bg: #F0F8FF;         
-            --text: #2F4F4F;       
-            --tag-bg: #B0E0E6;     
+            --primary: #1e293b;    /* Slate Blue (Header/Accents) */
+            --accent: #38bdf8;     /* Sky Blue (Links/Highlight) */
+            --bg: #0f172a;         /* Midnight Blue (Background) */
+            --text: #f1f5f9;       /* Light Gray (Text) */
+            --tag-bg: #334155;     /* Dark Slate (Tags) */
             --white: #ffffff;
-            --cloud-blue: #00A1E0; /* AWS-inspired blue for cloud highlights */
         }
 
         body {
             margin: 0;
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: dark blue;
+            background-color: var(--bg);
             color: var(--text);
             line-height: 1.6;
         }
 
         header {
-            background: linear-gradient(135deg, var(--primary), var(--cloud-blue));
+            background: var(--primary);
             color: var(--white);
             padding: 3.5rem 1rem;
             text-align: center;
+            border-bottom: 2px solid var(--accent);
         }
 
         .container {
             max-width: 850px;
             margin: -30px auto 40px;
             padding: 40px;
-            background: var(--white);
+            background: #1e293b; /* Slightly lighter than body for contrast */
             border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            border: 1px solid #334155;
         }
 
         h2 { 
@@ -67,30 +69,29 @@
 
         .skill-tag {
             background: var(--tag-bg);
+            color: var(--text);
             padding: 6px 14px;
-            border-radius: 20px;
+            border-radius: 6px;
             font-size: 0.85rem;
             font-weight: 600;
         }
 
         .cloud-tag {
-            background: #e0f2fe;
-            border: 1px solid var(--cloud-blue);
-            color: var(--cloud-blue);
+            border: 1px solid var(--accent);
         }
 
         .project-card {
-            background: #f8fafc;
+            background: #0f172a;
             padding: 20px;
             border-radius: 8px;
-            border: 1px solid #e2e8f0;
+            border: 1px solid #334155;
             margin-top: 15px;
         }
 
         .job-entry {
             margin-bottom: 20px;
             padding-left: 15px;
-            border-left: 4px solid var(--primary);
+            border-left: 4px solid var(--accent);
         }
 
         .btn {
@@ -98,7 +99,7 @@
             margin-top: 20px;
             padding: 12px 30px;
             background: var(--accent);
-            color: var(--white);
+            color: #0f172a; /* Dark text on light button */
             text-decoration: none;
             border-radius: 8px;
             font-weight: bold;
@@ -117,7 +118,7 @@
 <div class="container">
     <section>
         <h2>About Me</h2>
-        <p>I am a Support Engineer with a strong focus on Linux administration and hybrid infrastructure. While I currently manage on-premise systems at <strong>Netweb Technologies</strong>, I possess foundational knowledge in cloud computing and AWS, aiming to bridge the gap between traditional data centers and the cloud.</p>
+        <p>I am a Support Engineer with a strong focus on Linux administration and hybrid infrastructure. While I currently manage on-premise systems at <strong>Netweb Technologies</strong>, I possess foundational knowledge in cloud computing and AWS, aiming to bridge the gap between traditional data centers and the cloud[cite: 1, 2].</p>
     </section>
 
     <section>
@@ -138,15 +139,16 @@
                 <span class="skill-tag">RHEL 9.7 / Fedora</span>
                 <span class="skill-tag">Apache & NGINX</span>
                 <span class="skill-tag">Linux System Admin</span>
+                <span class="skill-tag">Docker</span>
                 <span class="skill-tag">Git & GitHub</span>
+                <span class="skill-tag">Grafana & Promethus</span>
                 <span class="skill-tag">Networking</span>
-                <span class="skill-tag">SQL ,Databases</span>
             </div>
         </div>
     </section>
 
     <section>
-        <h2>Cloud-Related Projects</h2>
+        <h2>Featured Projects</h2>
         <div class="project-card">
             <h3>Hybrid Environment Setup</h3>
             <p>Managed localized server environments using <strong>VMware</strong> and <strong>RHEL</strong>, simulating cloud-like infrastructure for application deployment.</p>
@@ -161,11 +163,11 @@
         <h2>Work Experience</h2>
         <div class="job-entry">
             <strong>Support Engineer</strong> | Netweb Technologies <br>
-            <small>Nov 2025 – Present</small>
+            <small>Nov 2025 – Present</small> 
         </div>
         <div class="job-entry">
             <strong>Apprentice Technical Associate</strong> | Financial Software Systems <br>
-            <small>Jan 2025 – Oct 2025</small>
+            <small>Jan 2025 – Oct 2025</small> 
         </div>
     </section>
 
