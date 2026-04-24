@@ -1,187 +1,991 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kshitij Ovhal | Cloud-Ready Support Engineer</title>
-    <style>
-        :root {
-            --primary: #72A0C1;    
-            --accent: #4682B4;     
-            --bg: #F0F8FF;         
-            --text: #2F4F4F;       
-            --tag-bg: #B0E0E6;     
-            --white: #ffffff;
-            --cloud-blue: #00A1E0; /* AWS-inspired blue for cloud highlights */
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kshitij Ovhal — Infrastructure Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;700;800&display=swap" rel="stylesheet">
 
-        body {
-            margin: 0;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: #2e3f41;
-            color: var(--text);
-            line-height: 1.6;
-        }
+<style>
+:root {
+  --bg: #060a10;
+  --bg2: #0c1420;
+  --bg3: #111d2e;
+  --green: #00ff8c;
+  --green-dim: rgba(0,255,140,0.12);
+  --green-glow: rgba(0,255,140,0.3);
+  --blue: #0ea5e9;
+  --blue-dim: rgba(14,165,233,0.12);
+  --amber: #f59e0b;
+  --text: #e2e8f0;
+  --text-dim: #64748b;
+  --border: rgba(255,255,255,0.06);
+  --mono: 'Space Mono', monospace;
+  --sans: 'Syne', sans-serif;
+}
 
-        header {
-            background: linear-gradient(135deg, var(--primary), var(--cloud-blue));
-            color: var(--white);
-            padding: 3.5rem 1rem;
-            text-align: center;
-        }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-        .container {
-            max-width: 850px;
-            margin: -30px auto 40px;
-            padding: 40px;
-            background: var(--white);
-            border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-        }
+html { scroll-behavior: smooth; }
 
-        h2 { 
-            color: var(--accent); 
-            border-bottom: 2px solid var(--tag-bg); 
-            padding-bottom: 5px;
-            margin-top: 40px;
-        }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  overflow-x: hidden;
+  cursor: default;
+}
 
-        /* Skills Section */
-        .skills-group {
-            margin-top: 20px;
-        }
+/* Scanline overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0,0,0,0.04) 2px,
+    rgba(0,0,0,0.04) 4px
+  );
+  pointer-events: none;
+  z-index: 1000;
+}
 
-        .skills-category {
-            font-weight: bold;
-            color: var(--accent);
-            margin-bottom: 10px;
-            display: block;
-        }
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 500;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 48px;
+  background: rgba(6,10,16,0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-logo {
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--green);
+  letter-spacing: 0.1em;
+}
+.nav-logo span { color: var(--text-dim); }
+.nav-links { display: flex; gap: 32px; }
+.nav-links a {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  text-decoration: none;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--green); }
 
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
+/* ── HERO ── */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  padding: 100px 48px 60px;
+}
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,255,140,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,255,140,0.04) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+.hero-glow {
+  position: absolute;
+  top: -200px; left: 50%;
+  transform: translateX(-50%);
+  width: 900px; height: 600px;
+  background: radial-gradient(ellipse at center, rgba(0,255,140,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+  width: 100%;
+}
+.hero-eyebrow {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--green);
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: inline-block;
+  width: 32px; height: 1px;
+  background: var(--green);
+}
+.hero-name {
+  font-size: clamp(52px, 8vw, 96px);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  margin-bottom: 16px;
+}
+.hero-name .accent { color: var(--green); }
+.hero-title {
+  font-family: var(--mono);
+  font-size: 16px;
+  color: var(--text-dim);
+  margin-bottom: 28px;
+  height: 24px;
+}
+.cursor-blink {
+  display: inline-block;
+  width: 10px;
+  height: 18px;
+  background: var(--green);
+  margin-left: 3px;
+  animation: blink 1s infinite;
+  vertical-align: middle;
+}
+@keyframes blink { 0%,50% { opacity: 1; } 51%,100% { opacity: 0; } }
 
-        .skill-tag {
-            background: var(--tag-bg);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
+.hero-desc {
+  font-size: 17px;
+  color: var(--text-dim);
+  max-width: 540px;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+.hero-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+.badge {
+  font-family: var(--mono);
+  font-size: 11px;
+  padding: 5px 14px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  color: var(--text-dim);
+  background: var(--bg2);
+  letter-spacing: 0.1em;
+}
+.badge.active { border-color: var(--green); color: var(--green); background: var(--green-dim); }
+.hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-primary {
+  font-family: var(--mono);
+  font-size: 12px;
+  padding: 14px 28px;
+  background: var(--green);
+  color: #060a10;
+  border: none;
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.btn-primary:hover { box-shadow: 0 0 24px var(--green-glow); transform: translateY(-2px); }
+.btn-ghost {
+  font-family: var(--mono);
+  font-size: 12px;
+  padding: 14px 28px;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-ghost:hover { border-color: var(--blue); color: var(--blue); }
 
-        .cloud-tag {
-            background: #e0f2fe;
-            border: 1px solid var(--cloud-blue);
-            color: var(--cloud-blue);
-        }
+.hero-stats {
+  position: absolute;
+  right: 48px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  z-index: 2;
+}
+.stat-item { text-align: right; }
+.stat-num {
+  font-family: var(--mono);
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--green);
+  line-height: 1;
+}
+.stat-label {
+  font-family: var(--mono);
+  font-size: 10px;
+  color: var(--text-dim);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
 
-        .project-card {
-            background: #f8fafc;
-            padding: 20px;
-            border-radius: 8px;
-            border: 1px solid #e2e8f0;
-            margin-top: 15px;
-        }
+/* ── SECTION COMMON ── */
+section { padding: 100px 48px; max-width: 1100px; margin: 0 auto; }
+.section-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--green);
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+  max-width: 80px;
+}
+.section-title {
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 56px;
+  line-height: 1.1;
+}
 
-        .job-entry {
-            margin-bottom: 20px;
-            padding-left: 15px;
-            border-left: 4px solid var(--primary);
-        }
+/* ── ABOUT ── */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+.terminal-block {
+  background: #0a0f1a;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  font-family: var(--mono);
+  font-size: 13px;
+  line-height: 1.8;
+}
+.terminal-bar {
+  background: #141c28;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid var(--border);
+}
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot.r { background: #ff5f57; }
+.dot.y { background: #febc2e; }
+.dot.g { background: #28c840; }
+.terminal-title { font-size: 11px; color: var(--text-dim); margin-left: auto; letter-spacing: 0.1em; }
+.terminal-body { padding: 20px; }
+.t-prompt { color: var(--green); }
+.t-out { color: #a0aec0; margin: 4px 0 12px 0; }
+.t-highlight { color: var(--amber); }
 
-        .btn {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 12px 30px;
-            background: var(--accent);
-            color: var(--white);
-            text-decoration: none;
-            border-radius: 8px;
-            font-weight: bold;
-        }
+.about-text { font-size: 16px; color: var(--text-dim); line-height: 1.8; }
+.about-text p { margin-bottom: 16px; }
+.about-text strong { color: var(--text); }
+.info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 24px;
+}
+.info-item {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  padding: 14px 16px;
+  border-radius: 3px;
+}
+.info-item .label { font-family: var(--mono); font-size: 10px; color: var(--text-dim); letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 4px; }
+.info-item .val { font-size: 14px; color: var(--text); font-weight: 600; }
 
-        footer { text-align: center; padding: 30px; font-size: 0.85rem; color: var(--accent); }
-    </style>
+/* ── EXPERIENCE ── */
+.timeline { position: relative; padding-left: 24px; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 8px; bottom: 8px;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--green), var(--blue), transparent);
+}
+.tl-item {
+  position: relative;
+  margin-bottom: 48px;
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.5s, transform 0.5s;
+}
+.tl-item.visible { opacity: 1; transform: translateX(0); }
+.tl-dot {
+  position: absolute;
+  left: -29px;
+  top: 6px;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--green);
+  box-shadow: 0 0 10px var(--green-glow);
+}
+.tl-item:last-child .tl-dot { background: var(--blue); box-shadow: 0 0 10px rgba(14,165,233,0.4); }
+.tl-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 6px; }
+.tl-role { font-size: 18px; font-weight: 700; }
+.tl-date {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--green);
+  border: 1px solid var(--green-dim);
+  padding: 3px 10px;
+  border-radius: 2px;
+}
+.tl-item:last-child .tl-date { color: var(--blue); border-color: var(--blue-dim); }
+.tl-company { font-family: var(--mono); font-size: 12px; color: var(--text-dim); margin-bottom: 14px; letter-spacing: 0.05em; }
+.tl-list { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.tl-list li {
+  font-size: 14px;
+  color: var(--text-dim);
+  padding-left: 18px;
+  position: relative;
+  line-height: 1.6;
+}
+.tl-list li::before {
+  content: '›';
+  position: absolute;
+  left: 0;
+  color: var(--green);
+  font-weight: 700;
+}
+
+/* ── SKILLS ── */
+.skills-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+.skill-group {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  padding: 24px;
+  border-radius: 4px;
+  transition: border-color 0.3s;
+}
+.skill-group:hover { border-color: rgba(0,255,140,0.3); }
+.skill-group-title {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--green);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.skill-bar { margin-bottom: 14px; }
+.skill-bar-top { display: flex; justify-content: space-between; margin-bottom: 6px; }
+.skill-name { font-size: 13px; color: var(--text); }
+.skill-pct { font-family: var(--mono); font-size: 11px; color: var(--text-dim); }
+.bar-bg {
+  height: 4px;
+  background: var(--bg3);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--green), var(--blue));
+  width: 0;
+  transition: width 1.2s cubic-bezier(0.4,0,0.2,1);
+}
+.cert-tags { display: flex; flex-direction: column; gap: 10px; }
+.cert-tag {
+  font-family: var(--mono);
+  font-size: 12px;
+  padding: 10px 16px;
+  background: var(--bg3);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  color: var(--text-dim);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cert-tag .status-badge {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 2px;
+}
+.cert-tag .in-progress { background: var(--green-dim); color: var(--green); border: 1px solid rgba(0,255,140,0.2); }
+.cert-tag .completed { background: var(--blue-dim); color: var(--blue); border: 1px solid rgba(14,165,233,0.2); }
+
+/* ── PROJECTS ── */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.project-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 28px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+  opacity: 1;
+  transform: none;
+}
+.project-card.visible { opacity: 1; transform: translateY(0); }
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--green), var(--blue));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+}
+.project-card:hover { border-color: rgba(0,255,140,0.2); box-shadow: 0 8px 40px rgba(0,0,0,0.4); transform: translateY(-4px); }
+.project-card:hover::before { transform: scaleX(1); }
+.project-num {
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-bottom: 16px;
+}
+.project-name { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
+.project-desc { font-size: 14px; color: var(--text-dim); line-height: 1.7; margin-bottom: 20px; }
+.tech-stack { display: flex; flex-wrap: wrap; gap: 6px; }
+.tech-pill {
+  font-family: var(--mono);
+  font-size: 10px;
+  padding: 3px 10px;
+  background: var(--bg3);
+  color: var(--blue);
+  border: 1px solid var(--blue-dim);
+  border-radius: 2px;
+  letter-spacing: 0.05em;
+}
+
+/* ── CONTACT ── */
+.contact-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.contact-left h3 { font-size: 18px; font-weight: 700; margin-bottom: 12px; }
+.contact-left p { font-size: 15px; color: var(--text-dim); line-height: 1.7; margin-bottom: 32px; }
+.contact-links { display: flex; flex-direction: column; gap: 14px; }
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--text-dim);
+  text-decoration: none;
+  padding: 14px 18px;
+  border: 1px solid var(--border);
+  background: var(--bg2);
+  border-radius: 3px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.contact-link:hover { border-color: var(--green); color: var(--green); }
+.contact-link .icon {
+  width: 28px; height: 28px;
+  background: var(--bg3);
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+.contact-form { display: flex; flex-direction: column; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-group label { font-family: var(--mono); font-size: 11px; color: var(--text-dim); letter-spacing: 0.15em; text-transform: uppercase; }
+.form-group input, .form-group textarea {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 12px 16px;
+  font-family: var(--mono);
+  font-size: 13px;
+  border-radius: 3px;
+  outline: none;
+  transition: border-color 0.2s;
+  resize: vertical;
+}
+.form-group input:focus, .form-group textarea:focus { border-color: var(--green); }
+.form-group textarea { min-height: 100px; }
+.btn-submit {
+  font-family: var(--mono);
+  font-size: 12px;
+  padding: 14px 28px;
+  background: var(--green);
+  color: #060a10;
+  border: none;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: none;
+  transition: box-shadow 0.2s, transform 0.2s;
+  border-radius: 2px;
+  align-self: flex-start;
+}
+.btn-submit:hover { box-shadow: 0 0 24px var(--green-glow); transform: translateY(-2px); }
+
+/* ── STATUS BAR ── */
+.status-bar {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: rgba(6,10,16,0.95);
+  border-top: 1px solid var(--border);
+  padding: 8px 48px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  z-index: 400;
+}
+.status-live { display: flex; align-items: center; gap: 6px; color: var(--green); }
+.pulse {
+  width: 7px; height: 7px;
+  background: var(--green);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--green);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%,100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.4); opacity: 0.6; }
+}
+.status-sep { color: var(--border); }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 32px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--text-dim);
+  margin-bottom: 44px;
+}
+footer a { color: var(--text-dim); text-decoration: none; transition: color 0.2s; }
+footer a:hover { color: var(--green); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  nav { padding: 16px 20px; }
+  .nav-links { display: none; }
+  #hero { padding: 120px 20px 80px; }
+  .hero-stats { display: none; }
+  .hero-name { font-size: 44px; }
+  section { padding: 72px 20px; }
+  .about-grid, .skills-layout, .projects-grid, .contact-wrapper { grid-template-columns: 1fr; }
+  .status-bar { padding: 8px 20px; gap: 12px; }
+  footer { padding: 24px 20px; flex-direction: column; gap: 12px; text-align: center; }
+}
+
+/* ── PAGE LOAD ANIMATIONS ── */
+.fade-in {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.6s, transform 0.6s;
+}
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+</style>
 </head>
 <body>
 
-<header>
-    <h1>Kshitij Ovhal</h1>
-    <p>Support Engineer | Cloud & Infrastructure Enthusiast</p>
-</header>
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
 
-<div class="container">
-    <section>
-        <h2>About Me</h2>
-        <p>I am a Support Engineer with a strong focus on Linux administration and hybrid infrastructure. While I currently manage on-premise systems at <strong>Netweb Technologies</strong>, I possess foundational knowledge in cloud computing and AWS, aiming to bridge the gap between traditional data centers and the cloud.</p>
-    </section>
+<!-- NAV -->
+<nav>
+  <div class="nav-logo"><span>~/</span>kshitij-ovhal</div>
+  <div class="nav-links">
+    <a href="#about">about</a>
+    <a href="#experience">experience</a>
+    <a href="#skills">skills</a>
+    <a href="#projects">projects</a>
+    <a href="#contact">contact</a>
+  </div>
+</nav>
 
-    <section>
-        <h2>Technical Skill Set</h2>
-        
-        <div class="skills-group">
-            <span class="skills-category">Cloud Foundations</span>
-            <div class="skills-container">
-                <span class="skill-tag cloud-tag">AWS Knowledge</span>
-                <span class="skill-tag cloud-tag">Cloud Infrastructure Basics</span>
-                <span class="skill-tag cloud-tag">Virtualization (VMware)</span>
-            </div>
-        </div>
-
-        <div class="skills-group">
-            <span class="skills-category">Core Infrastructure</span>
-            <div class="skills-container">
-                <span class="skill-tag">RHEL 9.7 / Fedora</span>
-                <span class="skill-tag">Apache & NGINX</span>
-                <span class="skill-tag">Linux System Admin</span>
-                <span class="skill-tag">Git & GitHub</span>
-                <span class="skill-tag">Docker</span>
-                <span class="skill-tag">K8s</span>
-                <span class="skill-tag">Grafana</span>
-                <span class="skill-tag">Networking</span>
-            </div>
-        </div>
-    </section>
-
-    <section>
-        <h2>Cloud-Related Projects</h2>
-        <div class="project-card">
-            <h3>Hybrid Environment Setup</h3>
-            <p>Managed localized server environments using <strong>VMware</strong> and <strong>RHEL</strong>, simulating cloud-like infrastructure for application deployment.</p>
-        </div>
-        <div class="project-card">
-            <h3>Web Server Configuration</h3>
-            <p>Configured <strong>Apache</strong> and <strong>NGINX</strong> servers to host professional web content, a key step in understanding cloud-based hosting.</p>
-        </div>
-    </section>
-
-    <section>
-        <h2>Work Experience</h2>
-        <div class="job-entry">
-            <strong>Support Engineer</strong> | Netweb Technologies <br>
-            <small>Nov 2025 – Present</small>
-        </div>
-        <div class="job-entry">
-            <strong>Apprentice Technical Associate</strong> | Financial Software Systems <br>
-            <small>Jan 2025 – Oct 2025</small>
-        </div>
-    </section>
-
-    <div style="text-align: center; margin-top: 40px;">
-        <a class="btn" href="https://www.linkedin.com/in/kshitij-ovhal" target="_blank">Connect on LinkedIn</a>
-        <a class="btn" href="Kshitij_resume.pdf" target="_blank">View Resume</a>
+<!-- HERO -->
+<div id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Infrastructure Engineer</div>
+    <h1 class="hero-name">Kshitij<br><span class="accent">Ovhal</span></h1>
+    <div class="hero-title">
+      <span id="typed-text"></span><span class="cursor-blink"></span>
     </div>
+    <p class="hero-desc">
+      Infrastructure & Application Support Engineer specializing in Linux systems, VMware virtualization, and cloud operations in Fintech & Banking domains.
+    </p>
+    <div class="hero-badges">
+      <span class="badge active">● Available for Opportunities</span>
+      <span class="badge">Kalyan, Maharashtra</span>
+    </div>
+    <div class="hero-cta">
+      <a href="Kshitij_Ovhal_Resume-2.PDF" target="_blank" class="btn-primary">View Resume</a>
+      <a href="#contact" class="btn-ghost">Get in Touch</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num" data-count="1">0</div>
+      <div class="stat-label">Year Experience</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-count="2">0</div>
+      <div class="stat-label">Roles Held</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num" data-count="6">0</div>
+      <div class="stat-label">Core Skills</div>
+    </div>
+  </div>
 </div>
 
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-label">About Me</div>
+  <h2 class="section-title">The Engineer<br>Behind the Terminal</h2>
+  <div class="about-grid fade-in">
+    <div class="terminal-block">
+      <div class="terminal-bar">
+        <div class="dot r"></div>
+        <div class="dot y"></div>
+        <div class="dot g"></div>
+        <div class="terminal-title">kshitij@infra-srv:~</div>
+      </div>
+      <div class="terminal-body">
+        <div class="t-prompt">$ whoami</div>
+        <div class="t-out">Kshitij Ovhal<br><span class="t-highlight">Infrastructure & Application Support Engineer</span></div>
+        <div class="t-prompt">$ cat skills.txt</div>
+        <div class="t-out">Linux (RHEL/Fedora), VMware vSphere,<br>Base-24, Dynatrace, Grafana,<br>AWS, MySQL, Apache, Git</div>
+        <div class="t-prompt">$ cat current_role.txt</div>
+        <div class="t-out">Support Engineer I @ Netweb Technologies<br>Banking Domain | Fintech | Production Support</div>
+        <div class="t-prompt">$ ./status.sh</div>
+        <div class="t-out"><span style="color:#28c840;">✓</span> Systems operational<br><span style="color:#28c840;">✓</span> Open to DevOps/SRE roles<br><span style="color:#febc2e;">⟳</span> RHCSA prep in progress</div>
+        <div class="t-prompt" id="live-time">$ date</div>
+        <div class="t-out" id="live-date-out"></div>
+      </div>
+    </div>
+    <div>
+      <div class="about-text">
+        <p>I'm an Infrastructure Support Engineer with a passion for <strong>Linux systems, automation, and cloud-native operations</strong>. My work spans production incident response, infrastructure monitoring, and platform reliability in high-stakes banking environments.</p>
+        <p>With hands-on experience at <strong>Netweb Technologies</strong> and a prior apprenticeship supporting <strong>SBI GITC's banking infrastructure</strong>, I've developed a sharp eye for system health, fast incident triage, and operational documentation.</p>
+        <p>Currently doubling down on my RHCSA and AWS certifications while building home-lab projects to sharpen my DevOps skill set.</p>
+      </div>
+      <div class="info-grid">
+        <div class="info-item"><div class="label">Location</div><div class="val">Kalyan, Maharashtra</div></div>
+        <div class="info-item"><div class="label">Education</div><div class="val">B.Sc. IT, Uni. of Mumbai</div></div>
+        <div class="info-item"><div class="label">Current Role</div><div class="val">Support Engineer I</div></div>
+        <div class="info-item"><div class="label">Target Role</div><div class="val">DevOps / SRE / Cloud</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-label">Experience</div>
+  <h2 class="section-title">Work History</h2>
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-header">
+        <div class="tl-role">Infrastructure & Application Support Engineer</div>
+        <div class="tl-date">Nov 2025 – Present</div>
+      </div>
+      <div class="tl-company">Netweb Technologies — Banking Domain</div>
+      <ul class="tl-list">
+        <li>Perform infrastructure health checks including CPU, storage, and system resource monitoring via Grafana & CloudWatch dashboards.</li>
+        <li>Monitor application services and resolve service disruptions with SLA-bound incident response.</li>
+        <li>Analyze logs to identify root causes and document runbooks for production incidents.</li>
+        <li>Track virtual machine performance in VMware environments, managing VM health and capacity.</li>
+        <li>Manage directory structures and file permissions for engineering and operations teams.</li>
+        <li>Handle infrastructure alerts and coordinate with L2/L3 teams for escalation resolution.</li>
+      </ul>
+    </div>
+    <div class="tl-item">
+      <div class="tl-dot"></div>
+      <div class="tl-header">
+        <div class="tl-role">Technical Associate (Apprentice)</div>
+        <div class="tl-date">Jan 2025 – Oct 2025</div>
+      </div>
+      <div class="tl-company">Financial Software Systems — SBI GITC</div>
+      <ul class="tl-list">
+        <li>Provided L1 production support for SBI GITC banking, payments, ATM, and POS applications.</li>
+        <li>Monitored logs using Base-24 and Dynatrace; performed triage for transaction failures.</li>
+        <li>Supported patch validation, deployments, service restarts, and system health checks.</li>
+        <li>Created SOPs, troubleshooting documents, and functional guides for the support team.</li>
+        <li>Analyzed backend issues using SQL queries and provided data insights to L2/L3 teams.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-label">Skills</div>
+  <h2 class="section-title">Technical Toolkit</h2>
+  <div class="skills-layout fade-in">
+    <div class="skill-group">
+      <div class="skill-group-title">Systems & Infrastructure</div>
+      <div class="skill-bar"><div class="skill-bar-top"><span class="skill-name">Linux (RHEL / Fedora)</span><span class="skill-pct">85%</span></div><div class="bar-bg"><div class="bar-fill" data-w="85"></div></div></div>
+      <div class="skill-bar"><div class="skill-bar-top"><span class="skill-name">VMware vSphere</span><span class="skill-pct">78%</span></div><div class="bar-bg"><div class="bar-fill" data-w="78"></div></div></div>
+      <div class="skill-bar"><div class="skill-bar-top"><span class="skill-name">Apache Web Server</span><span class="skill-pct">70%</span></div><div class="bar-bg"><div class="bar-fill" data-w="70"></div></div></div>
+      <div class="skill-bar"><div class="skill-bar-top"><span class="skill-name">Networking & Firewall</span><span class="skill-pct">65%</span></div><div class="bar-bg"><div class="bar-fill" data-w="65"></div></div></div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Observability & Monitoring</div>
+      <div class="skill-bar"><div class="skill-bar-top"><span class="skill-name">Grafana / Prometheus</span><span class="skill-pct">80%</span></div><div class="bar-bg"><div class="bar-fill" data-w="80"></div></div></div>
+      <div class="skill-bar"><div class="skill-bar-top"><span class="skill-name">Dynatrace</span><span class="skill-pct">75%</span></div><div class="bar-bg"><div class="bar-fill" data-w="75"></div></div></div>
+      <div class="skill-bar"><div class="skill-bar-top"><span class="skill-name">Base-24 (ATM/POS)</span><span class="skill-pct">72%</span></div><div class="bar-bg"><div class="bar-fill" data-w="72"></div></div></div>
+      <div class="skill-bar"><div class="skill-bar-top"><span class="skill-name">AWS CloudWatch</span><span class="skill-pct">60%</span></div><div class="bar-bg"><div class="bar-fill" data-w="60"></div></div></div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title">Dev & Database</div>
+      <div class="skill-bar"><div class="skill-bar-top"><span class="skill-name">Git / GitHub</span><span class="skill-pct">80%</span></div><div class="bar-bg"><div class="bar-fill" data-w="80"></div></div></div>
+      <div class="skill-bar"><div class="skill-bar-top"><span class="skill-name">MySQL / SQL</span><span class="skill-pct">70%</span></div><div class="bar-bg"><div class="bar-fill" data-w="70"></div></div></div>
+      <div class="skill-bar"><div class="skill-bar-top"><span class="skill-name">Shell Scripting</span><span class="skill-pct">62%</span></div><div class="bar-bg"><div class="bar-fill" data-w="62"></div></div></div>
+      <div class="skill-bar"><div class="skill-bar-top"><span class="skill-name">Docker (Learning)</span><span class="skill-pct">35%</span></div><div class="bar-bg"><div class="bar-fill" data-w="35"></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-label">Projects</div>
+  <h2 class="section-title">Lab Work &<br>Side Projects</h2>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-num">01 —</div>
+      <div class="project-name">Linux Web Infrastructure Deployment</div>
+      <div class="project-desc">Deployed an Apache web server on a Fedora Linux VM. Configured static networking, firewall rules (firewalld), and automated site updates via Git. Built for reliability and repeatability as an RHCSA exam lab exercise.</div>
+      <div class="tech-stack">
+        <span class="tech-pill">Linux</span>
+        <span class="tech-pill">Apache</span>
+        <span class="tech-pill">Git</span>
+        <span class="tech-pill">firewalld</span>
+        <span class="tech-pill">VMware</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-num">02 —</div>
+      <div class="project-name">Portfolio CI/CD Pipeline</div>
+      <div class="project-desc">Automated deployment of this portfolio using GitHub Pages, ensuring version-controlled updates pushed directly from a local development environment. Integrated with Git workflows for seamless publishing.</div>
+      <div class="tech-stack">
+        <span class="tech-pill">GitHub Pages</span>
+        <span class="tech-pill">HTML/CSS</span>
+        <span class="tech-pill">Git</span>
+        <span class="tech-pill">CI/CD</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-num">03 —</div>
+      <div class="project-name">Home Network Monitoring Stack</div>
+      <div class="project-desc">Deployed Pi-hole for DNS-level ad blocking on an Ubuntu VM, layered with Grafana dashboards for visualizing network traffic metrics. Explored ntopng and Squid Proxy for deeper traffic analysis.</div>
+      <div class="tech-stack">
+        <span class="tech-pill">Pi-hole</span>
+        <span class="tech-pill">Grafana</span>
+        <span class="tech-pill">Ubuntu</span>
+        <span class="tech-pill">ntopng</span>
+        <span class="tech-pill">Squid Proxy</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <div class="project-num">04 —</div>
+      <div class="project-name">RHEL 9 LVM Lab</div>
+      <div class="project-desc">Practiced full LVM lifecycle on a RHEL 9 VM: physical volume creation, volume group management, logical volume creation, XFS formatting, fstab persistence, live extension with xfs_growfs, and swap configuration on LVs.</div>
+      <div class="tech-stack">
+        <span class="tech-pill">RHEL 9</span>
+        <span class="tech-pill">LVM</span>
+        <span class="tech-pill">XFS</span>
+        <span class="tech-pill">VMware</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-label">Contact</div>
+  <h2 class="section-title">Let's Connect</h2>
+  <div class="contact-wrapper fade-in">
+    <div class="contact-left">
+      <h3>Open to DevOps, SRE &amp; Cloud roles</h3>
+      <p>I'm actively looking for opportunities where I can grow my skills in cloud infrastructure, automation, and site reliability. Feel free to reach out for job opportunities, collaborations, or just a conversation about tech.</p>
+      <div class="contact-links">
+        <a href="mailto:kshitijovhal342@gmail.com" class="contact-link">
+          <div class="icon">✉</div>
+          kshitijovhal342@gmail.com
+        </a>
+        <a href="tel:+917039290398" class="contact-link">
+          <div class="icon">☎</div>
+          +91 70392 90398
+        </a>
+        <a href="https://www.linkedin.com/in/kshitij-ovhal/" target="_blank" class="contact-link">
+          <div class="icon">in</div>
+          linkedin.com/in/kshitij-ovhal
+        </a>
+      </div>
+    </div>
+    <div>
+      <form class="contact-form" onsubmit="handleSubmit(event)">
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="" required>
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" placeholder="" required>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="I'd like to discuss an opportunity..."></textarea>
+        </div>
+        <button type="submit" class="btn-submit" id="submit-btn">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
-    <p>Contact</p>
-    <p>Email : kshitijovhal342@gmail.com</p>
-    <p>Phone no : +91 7039290398</p>
+  <div>© 2026 Kshitij Ovhal — Infrastructure Engineer</div>
+  <div style="display:flex;gap:24px;">
+    <a href="https://www.linkedin.com/in/kshitij-ovhal/" target="_blank">LinkedIn</a>
+    <a href="Kshitij_Ovhal_Resume-2.PDF" target="_blank">Resume</a>
+    <a href="mailto:kshitijovhal342@gmail.com">Email</a>
+  </div>
 </footer>
 
+<!-- STATUS BAR -->
+<div class="status-bar">
+  <div class="status-live"><div class="pulse"></div> Systems Online</div>
+  <span class="status-sep">|</span>
+  <span id="status-time"></span>
+  <span class="status-sep">|</span>
+  <span>Kalyan, Maharashtra, IN</span>
+</div>
+
+<script>
+// ── Typing effect ──
+const phrases = [
+  'Infrastructure Support Engineer',
+  'Linux & VMware Specialist',
+  'Cloud Operations Enthusiast',
+  'DevOps Learner | RHCSA Candidate',
+];
+let pi = 0, ci = 0, deleting = false;
+const typedEl = document.getElementById('typed-text');
+function type() {
+  const phrase = phrases[pi];
+  if (!deleting) {
+    typedEl.textContent = phrase.slice(0, ci + 1);
+    ci++;
+    if (ci === phrase.length) { deleting = true; setTimeout(type, 2000); return; }
+  } else {
+    typedEl.textContent = phrase.slice(0, ci - 1);
+    ci--;
+    if (ci === 0) { deleting = false; pi = (pi + 1) % phrases.length; }
+  }
+  setTimeout(type, deleting ? 40 : 75);
+}
+type();
+
+// ── Live clock ──
+function updateTime() {
+  const now = new Date();
+  const s = now.toLocaleTimeString('en-IN', {hour:'2-digit', minute:'2-digit', second:'2-digit', hour12: false});
+  document.getElementById('status-time').textContent = s;
+  document.getElementById('live-date-out').textContent = now.toUTCString();
+}
+updateTime(); setInterval(updateTime, 1000);
+
+// ── Counter animation ──
+function animateCounter(el) {
+  if (el.dataset.animated) return;
+  el.dataset.animated = true;
+  const target = parseInt(el.dataset.count);
+  let cur = 0;
+  const step = Math.ceil(target / 30);
+  const t = setInterval(() => {
+    cur = Math.min(cur + step, target);
+    el.textContent = cur + (target >= 10 ? '+' : '');
+    if (cur >= target) clearInterval(t);
+  }, 50);
+}
+
+// ── Run counters and bars immediately on load ──
+window.addEventListener('DOMContentLoaded', () => {
+  // Counters
+  setTimeout(() => {
+    document.querySelectorAll('[data-count]').forEach(el => animateCounter(el));
+  }, 600);
+
+  // Skill bars — use IntersectionObserver so they animate when scrolled into view
+  const barObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.bar-fill').forEach(bar => {
+          bar.style.width = bar.dataset.w + '%';
+        });
+        barObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.skill-group').forEach(el => barObserver.observe(el));
+});
+
+// ── Form submit ──
+function handleSubmit(e) {
+  e.preventDefault();
+  const btn = document.getElementById('submit-btn');
+  btn.textContent = '✓ Message Sent';
+  btn.style.background = '#10b981';
+  setTimeout(() => {
+    btn.textContent = 'Send Message';
+    btn.style.background = '';
+    e.target.reset();
+  }, 3000);
+}
+</script>
 </body>
 </html>
